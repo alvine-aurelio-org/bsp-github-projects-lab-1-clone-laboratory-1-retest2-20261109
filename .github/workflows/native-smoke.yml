@@ -1,0 +1,37 @@
+name: Author — native bootstrap smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+concurrency:
+  group: bsp-mona-${{ github.repository_id }}
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    # This one-time author probe is inert in the published source and copies.
+    if: >-
+      github.repository == 'alvine-aurelio-org/bsp-github-projects-lab-1' &&
+      github.event.repository.private == true &&
+      github.event.repository.is_template == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Verify the one-issue bootstrap in an empty private author source
+        run: node tools/native-smoke.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTOR: ${{ github.actor }}

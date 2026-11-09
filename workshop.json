@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 2,
+  "bootstrapIssueLimit": 1,
+  "role": "starter",
+  "title": "GitHub Projects: from backlog to delivery",
+  "starterRepository": "alvine-aurelio-org/bsp-github-projects-lab-1",
+  "sourceRepositories": [
+    "alvine-aurelio-org/bsp-github-projects-lab-1",
+    "alvine-aurelio-org/bsp-github-projects-lab-2",
+    "alvine-aurelio-org/bsp-github-projects-lab-3"
+  ],
+  "publicAssetBase": "https://raw.githubusercontent.com/alvine-aurelio-org/bsp-github-projects-lab-1/main/assets/screenshots/",
+  "defaultBranch": "main",
+  "exerciseTitle": "Mona's GitHub Projects workshop — start here",
+  "exerciseMarker": "<!-- bsp-workshop-exercise:v2 -->",
+  "stateMarker": "bsp-workshop-state:v2",
+  "workBranch": "workshop/release-checklist",
+  "workFile": "work/release-checklist.md",
+  "requiredWorkText": "- [x] Publish the service release checklist",
+  "backlogItems": [
+    {
+      "key": "feature",
+      "title": "[Workshop] Deliver the digital-service enhancement",
+      "body": "Fictional feature: publish a clear release checklist for a digital service.\n\nAcceptance criteria:\n- A release checklist is published.\n- Verification work remains visible for the next sprint.\n\nThis is synthetic training data, not a real BSP service."
+    },
+    {
+      "key": "implementation",
+      "title": "[Workshop] Publish the service release checklist",
+      "body": "Task: update `work/release-checklist.md` through a branch and pull request.\n\nAcceptance criterion: change the first checklist item to `- [x] Publish the service release checklist`.\n\nUse this issue's actual number in the pull request closing reference. Do not close this issue manually."
+    },
+    {
+      "key": "verification",
+      "title": "[Workshop] Verify the release checklist in Sprint 2",
+      "body": "Task: verify the release checklist after implementation.\n\nIn Lab 2, mark this issue as blocked by the implementation issue. Leave this issue open and carry it into Sprint 2."
+    },
+    {
+      "key": "bug",
+      "title": "[Workshop] Correct the fictional help-link wording",
+      "body": "Bug: a fictional help label is unclear. Keep this item in the backlog; no application or customer data is involved.\n\nUse a low Priority and a small Effort estimate during the exercise."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1-0",
+      "lab": 1,
+      "step": 0,
+      "minutes": 12,
+      "title": "Create your isolated workspace",
+      "file": "lessons/lab-1/00-workspace.md",
+      "image": "lab-1-step-0.png",
+      "mode": "self-confirmed",
+      "command": "/project YOUR_PROJECT_URL"
+    },
+    {
+      "id": "1-1",
+      "lab": 1,
+      "step": 1,
+      "minutes": 10,
+      "title": "Populate your backlog",
+      "file": "lessons/lab-1/01-backlog.md",
+      "image": "lab-1-step-1.png",
+      "mode": "mixed",
+      "command": "/backlog #FEATURE #IMPLEMENTATION #VERIFICATION #BUG"
+    },
+    {
+      "id": "1-2",
+      "lab": 1,
+      "step": 2,
+      "minutes": 10,
+      "title": "Add planning information",
+      "file": "lessons/lab-1/02-fields.md",
+      "image": "lab-1-step-2.png",
+      "mode": "self-confirmed",
+      "command": "/done 1-2"
+    },
+    {
+      "id": "1-3",
+      "lab": 1,
+      "step": 3,
+      "minutes": 8,
+      "title": "Save a delivery board",
+      "file": "lessons/lab-1/03-board.md",
+      "image": "lab-1-step-3.png",
+      "mode": "self-confirmed",
+      "command": "/done 1-3"
+    },
+    {
+      "id": "2-1",
+      "lab": 2,
+      "step": 1,
+      "minutes": 8,
+      "title": "Plan your sprint",
+      "file": "lessons/lab-2/01-sprint.md",
+      "image": "lab-2-step-1.png",
+      "mode": "self-confirmed",
+      "command": "/done 2-1"
+    },
+    {
+      "id": "2-2",
+      "lab": 2,
+      "step": 2,
+      "minutes": 7,
+      "title": "Show a native dependency",
+      "file": "lessons/lab-2/02-dependency.md",
+      "image": "lab-2-step-2.png",
+      "mode": "repository-verified",
+      "command": "/check 2-2"
+    },
+    {
+      "id": "2-3",
+      "lab": 2,
+      "step": 3,
+      "minutes": 12,
+      "title": "Create a linked pull request",
+      "file": "lessons/lab-2/03-pull-request.md",
+      "image": "lab-2-step-3.png",
+      "mode": "repository-verified",
+      "command": "/check 2-3 #YOUR_PR_NUMBER"
+    },
+    {
+      "id": "2-4",
+      "lab": 2,
+      "step": 4,
+      "minutes": 8,
+      "title": "Complete and carry over",
+      "file": "lessons/lab-2/04-complete.md",
+      "image": "lab-2-step-4.png",
+      "mode": "mixed",
+      "command": "/check 2-4 #YOUR_PR_NUMBER"
+    },
+    {
+      "id": "3-1",
+      "lab": 3,
+      "step": 1,
+      "minutes": 10,
+      "title": "Create a release roadmap",
+      "file": "lessons/lab-3/01-roadmap.md",
+      "image": "lab-3-step-1.png",
+      "mode": "self-confirmed",
+      "command": "/done 3-1"
+    },
+    {
+      "id": "3-2",
+      "lab": 3,
+      "step": 2,
+      "minutes": 8,
+      "title": "Inspect workload",
+      "file": "lessons/lab-3/02-workload.md",
+      "image": "lab-3-step-2.png",
+      "mode": "self-confirmed",
+      "command": "/done 3-2"
+    },
+    {
+      "id": "3-3",
+      "lab": 3,
+      "step": 3,
+      "minutes": 7,
+      "title": "Read a progress chart",
+      "file": "lessons/lab-3/03-insights.md",
+      "image": "lab-3-step-3.png",
+      "mode": "self-confirmed",
+      "command": "/done 3-3"
+    },
+    {
+      "id": "3-4",
+      "lab": 3,
+      "step": 4,
+      "minutes": 10,
+      "title": "Publish a delivery update",
+      "file": "lessons/lab-3/04-update.md",
+      "image": "lab-3-step-4.png",
+      "mode": "self-confirmed",
+      "command": "/done 3-4"
+    }
+  ]
+}

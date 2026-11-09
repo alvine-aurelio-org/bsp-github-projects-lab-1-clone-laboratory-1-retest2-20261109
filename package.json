@@ -1,0 +1,16 @@
+{
+  "name": "bsp-github-projects-lab-1",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Author verification tools for a self-service GitHub Projects workshop. Learners do not install Node or npm.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test --test-reporter=tap",
+    "verify": "node tools/verify-content.mjs",
+    "screenshots": "node tools/build-screenshots.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

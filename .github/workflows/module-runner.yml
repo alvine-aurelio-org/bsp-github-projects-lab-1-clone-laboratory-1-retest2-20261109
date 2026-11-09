@@ -1,0 +1,55 @@
+name: Mona — standalone module runtime
+
+on:
+  workflow_call:
+    inputs:
+      runtime-ref:
+        description: Immutable framework commit used by the calling lab
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+concurrency:
+  group: bsp-mona-module-${{ github.repository_id }}
+  cancel-in-progress: false
+
+jobs:
+  guide:
+    if: github.event_name != 'issue_comment' || (!github.event.issue.pull_request && github.event.comment.user.type == 'User')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check the pinned runtime reference
+        env:
+          RUNTIME_REF: ${{ inputs.runtime-ref }}
+        run: '[[ "$RUNTIME_REF" =~ ^[0-9a-f]{40}$ ]]'
+      - name: Read caller instructions as data
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: ${{ github.repository }}
+          ref: main
+          path: learner
+          persist-credentials: false
+      - name: Read the immutable public Mona runtime
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: alvine-aurelio-org/bsp-github-projects-lab-1
+          ref: ${{ inputs.runtime-ref }}
+          path: framework
+          persist-credentials: false
+      - name: Use Node 24
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Post the current step in the same Mona issue
+        run: node framework/.github/scripts/module.mjs
+        env:
+          MODULE_ROOT: ${{ github.workspace }}/learner
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
